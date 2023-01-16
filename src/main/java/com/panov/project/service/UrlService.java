@@ -1,7 +1,11 @@
 package com.panov.project.service;
 
-import org.springframework.stereotype.Service;
+import com.panov.project.dto.UrlDto;
+import com.panov.project.entity.Url;
 
-@Service
-public class UrlService {
+import java.util.List;
+
+public interface UrlService {
+    List<Url> findAll();
+    Url createShortDto(UrlDto urlDto);
 }

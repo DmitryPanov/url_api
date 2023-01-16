@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-controller="indexController">
+    <h1>Table URL</h1>
+
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Id</td>
+            <td>URL</td>
+            <td>Short_Url</td>
+            <td>Generate_Url</td>
+            <td></td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="u in urls">
+            <td>{{u.id}}</td>
+            <td>{{u.url}}</td>
+            <td>{{u.urlShort}}</td>
+            <td>{{u.urlGenerate}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Url details</h3>
+    <form novalidate ng-submit="createShortUrl()">
+        <input class="form-control" type="text" placeholder="Original link" ng-model="urlDetails.urlOriginal">
+        <p></p>
+        <input class="form-control" type="text" placeholder="User short link" ng-model="urlDetails.urlUser">
+        <p></p>
+        <button type="submit" class="btn btn-primary">Create url</button>
+    </form>
+</div>
+</body>
+</html>
