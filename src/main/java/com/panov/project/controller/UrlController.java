@@ -3,13 +3,17 @@ package com.panov.project.controller;
 import com.panov.project.dto.UrlDto;
 import com.panov.project.entity.Url;
 import com.panov.project.service.UrlService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,8 +27,18 @@ public class UrlController {
     public List<Url> findAllUrls() {
         return urlService.findAll();
     }
+
     @PostMapping
     public Url createShortLink(@RequestBody UrlDto urlDto) {
-        return urlService.createShortDto(urlDto);
+        return urlService.generateShortLink(urlDto);
     }
+
+    @GetMapping("/{link}")
+    public ResponseEntity<?> redirectToShortLink(@PathVariable String link) {
+        Optional<Url> url = urlService.findUrlByShortLink(link);
+        logger.warn(String.valueOf(url.get()));
+        return ResponseEntity.ok(url);
+    }
+
+
 }

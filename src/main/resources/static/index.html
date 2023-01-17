@@ -23,7 +23,8 @@
             <td>URL</td>
             <td>Short_Url</td>
             <td>Generate_Url</td>
-            <td></td>
+            <td>Redirect</td>
+
         </tr>
         <tbody>
         <tr ng-repeat="u in urls">
@@ -31,9 +32,13 @@
             <td>{{u.url}}</td>
             <td>{{u.urlShort}}</td>
             <td>{{u.urlGenerate}}</td>
+            <td>
+                <button class="btn btn-success" ng-click="redirectByShortUrl(u.urlGenerate)">Redirect short Url</button>
+            </td>
         </tr>
         </tbody>
     </table>
+
     <h3>Url details</h3>
     <form novalidate ng-submit="createShortUrl()">
         <input class="form-control" type="text" placeholder="Original link" ng-model="urlDetails.urlOriginal">
