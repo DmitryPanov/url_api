@@ -8,8 +8,8 @@ create table url_table
 
 insert into url_table (url, url_short, url_generate)
 values
-(
- 'https://ya.ru/',
- 'demo',
- 'demo'
-);
+    (
+        'https://ya.ru/',
+        'demo',
+        'demo'
+    );

@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +36,8 @@ public class UrlController {
 
     @GetMapping("/{link}")
     public ResponseEntity<?> redirectToShortLink(@PathVariable String link) {
-        Optional<Url> url = urlService.findUrlByShortLink(link);
-        logger.warn(String.valueOf(url.get()));
+        Url url = urlService.findUrlByShortLink(link);
+        logger.warn(String.valueOf(url));
         return ResponseEntity.ok(url);
     }
 

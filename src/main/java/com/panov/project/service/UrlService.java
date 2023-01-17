@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface UrlService {
     List<Url> findAll();
     Url generateShortLink(UrlDto urlDto);
-    Optional<Url> findUrlByShortLink(String shortLink);
+    Url findUrlByShortLink(String shortLink);
 }
