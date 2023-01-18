@@ -23,7 +23,7 @@ public class UrlServiceImpl implements UrlService {
     private final UrlRepository urlRepository;
 
     @Override
-    public List<Url> findAll() {
+    public List<Url> findAllUrl() {
         return Optional.of(urlRepository.findAll()).orElse(Collections.emptyList());
     }
 
@@ -55,7 +55,6 @@ public class UrlServiceImpl implements UrlService {
         try {
             new URL(urlDto.getUrlOriginal()).toURI();
         } catch (URISyntaxException | MalformedURLException e) {
-            e.printStackTrace();
             throw new UrlException("Exception in URL link " + e.getMessage());
         }
     }

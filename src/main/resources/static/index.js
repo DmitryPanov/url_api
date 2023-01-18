@@ -15,6 +15,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             method: 'POST',
             data: $scope.urlDetails
         }).then(function (response) {
+            // TODO : if catch exception return message with exception to user
             $scope.urlDetails = null;
             $scope.loadUrls();
         });
