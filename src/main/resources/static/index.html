@@ -16,25 +16,25 @@
 
 <div class="container" ng-controller="indexController">
     <h1>Table URL</h1>
-
-    <table class="table table-hover" cellpadding="0" cellspacing="0">
-        <tr>
-            <td>Id</td>
-            <td>URL</td>
-            <td>Short_Url</td>
-            <td>Generate_Url</td>
-            <td>Redirect</td>
-
-        </tr>
+    <table class="table align-middle table-bordered">
+        <thread scope="col">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Url</th>
+                <th scope="col">User url name</th>
+                <th scope="col">Generate url</th>
+                <th scope="col">Redirect</th>
+            </tr>
+        </thread>
         <tbody>
         <tr ng-repeat="u in urls">
-            <td>{{u.id}}</td>
-            <td>{{u.url}}</td>
-            <td>{{u.urlShort}}</td>
-            <td>{{u.urlGenerate}}</td>
-            <td>
-                <button class="btn btn-success" ng-click="redirectByShortUrl(u.urlGenerate)">Redirect short Url</button>
-            </td>
+            <th scope="row">{{u.id}}</th>
+            <th scope="row">{{u.url}}</th>
+            <th scope="row">{{u.urlShort}}</th>
+            <th scope="row">{{u.urlGenerate}}</th>
+            <th scope="row">
+                <button class="btn btn-success" ng-click="redirectByShortUrl(u.urlGenerate)">Redirect short url</button>
+            </th>
         </tr>
         </tbody>
     </table>
