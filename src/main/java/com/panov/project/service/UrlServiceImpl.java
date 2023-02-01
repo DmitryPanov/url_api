@@ -1,6 +1,7 @@
 package com.panov.project.service;
 
 import com.panov.project.dto.UrlDto;
+import com.panov.project.dto.UrlResponceDto;
 import com.panov.project.entity.Url;
 import com.panov.project.exception_handler.ResourceNotFoundException;
 import com.panov.project.exception_handler.UrlException;
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

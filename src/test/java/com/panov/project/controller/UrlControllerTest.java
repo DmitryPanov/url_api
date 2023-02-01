@@ -2,6 +2,7 @@ package com.panov.project.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.panov.project.dto.UrlDto;
+import com.panov.project.dto.UrlResponceDto;
 import com.panov.project.entity.Url;
 import com.panov.project.service.UrlServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;

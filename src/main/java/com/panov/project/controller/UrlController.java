@@ -1,6 +1,7 @@
 package com.panov.project.controller;
 
 import com.panov.project.dto.UrlDto;
+import com.panov.project.dto.UrlResponceDto;
 import com.panov.project.entity.Url;
 import com.panov.project.service.UrlService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +24,7 @@ public class UrlController {
 
     @GetMapping
     public ResponseEntity<?> findAllUrls() {
-        return ResponseEntity.ok(urlService.findAllUrl());
+        return ResponseEntity.ok(urlService.findAllUrl().stream().map(UrlResponceDto::new).collect(Collectors.toList()));
     }
 
     @PostMapping
@@ -31,7 +34,7 @@ public class UrlController {
 
     @GetMapping("/{link}")
     public ResponseEntity<?> redirectToShortLink(@PathVariable String link) {
-        return ResponseEntity.ok(urlService.findUrlByShortLink(link));
+        return ResponseEntity.ok(new UrlResponceDto(urlService.findUrlByShortLink(link)));
     }
 
 

@@ -18,5 +18,10 @@ SQL init is located in the db/migration/V1__init.sql
 https://gyazo.com/62ff2e32313c9816c2dee88976520092.png
 
 git https://github.com/DmitryPanov/url_api
-start docker: docker-compose up
+start app with terminal:
+docker-compose up
+./mvnw clean package
+cd target
+java -jar url_api-0.0.1-SNAPSHOT.jar
+
 web start http://localhost:8080/app
