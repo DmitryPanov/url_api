@@ -1,10 +1,10 @@
-create table url_table
+CREATE TABLE IF NOT EXISTS url_table
 (
-    id           bigserial primary key,
-    url          varchar(255),
-    url_short    varchar(255),
-    url_generate varchar(255)
-);
+    id           BIGSERIAL PRIMARY KEY ,
+    url          VARCHAR(255),
+    url_short    VARCHAR(255),
+    url_generate VARCHAR(255)
+    );
 
 insert into url_table (url, url_short, url_generate)
 values
